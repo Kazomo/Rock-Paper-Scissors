@@ -6,6 +6,29 @@
     <title>Rock-Paper_Scissors</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      //random number between 0 and max
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+      //Generate random selection for computer
+      function computerPlay() {
+        let randomNumber = getRandomInt(3);
+        let randomSelection;
+        switch (randomNumber) {
+          case 0:
+            randomSelection = "Rock";
+            break;
+          case 1:
+            randomSelection = "Paper";
+            break;
+          case 2:
+            randomSelection = "Scissors";
+            break;
+        }
+        return randomSelection;
+      }
+      //end of function
+    </script>
   </body>
 </html>

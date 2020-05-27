@@ -17,53 +17,77 @@ function computerPlay() {
 let tieCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
+let message;
 function playRound(playerSelection, computerSelection) {
   playerSelection = prompt("Enter your choice: ").toLowerCase();
   computerSelection = computerPlay();
 
+  if (
+    playerSelection === "rock" ||
+    playerSelection === "paper" ||
+    playerSelection === "scissors"
+  ) {
+    return playerSelection;
+  } else {
+    message = "Please select one of these optios:\n Rock, Paper, Scissors";
+  }
+
   switch (playerSelection) {
     case computerSelection:
-      return "tie", tieCounter++;
+      message = "tie";
+      return tieCounter++;
       break;
     case "rock":
       switch (computerSelection) {
         case "paper":
-          return "You Lose! Paper beats Rock", computerScore++;
+          message = "You Lose! Paper beats Rock";
+          return computerScore++;
           break;
         case "scissors":
-          return "You Win! Rock beats Scissors", playerScore++;
+          message = "You Win! Rock beats Scissors";
+          return playerScore++;
           break;
       }
     case "paper":
       switch (computerSelection) {
         case "rock":
-          return "You Win! Paper beats Rock", playerScore++;
+          message = "You Win! Paper beats Rock";
+          return playerScore++;
           break;
         case "scissors":
-          return "You Lose! Scissors beats Paper", computerScore++;
+          return (message = "You Lose! Scissors beats Paper");
+          computerScore++;
           break;
       }
     case "scissors":
       switch (computerSelection) {
         case "rock":
-          return "You Lose! Rock beats Scissors", computerScore++;
+          message = "You Lose! Rock beats Scissors";
+          return computerScore++;
           break;
         case "paper":
-          return "You Win! Scissors beats Paper", playerScore++;
+          message = "You Win! Scissors beats Paper";
+          return playerScore++;
           break;
       }
   }
 }
 function game() {
+  let output;
   playRound();
-  console.log(tieCounter, playerScore, computerScore);
+  output = `${message}. Player Score=${playerScore} Computer Score=${computerScore} Tie=${tieCounter}`;
+  console.log(output);
   playRound();
-  console.log(tieCounter, playerScore, computerScore);
+  output = `${message}. Player Score=${playerScore} Computer Score=${computerScore} Tie=${tieCounter}`;
+  console.log(output);
   playRound();
-  console.log(tieCounter, playerScore, computerScore);
+  output = `${message}. Player Score=${playerScore} Computer Score=${computerScore} Tie=${tieCounter}`;
+  console.log(output);
   playRound();
-  console.log(tieCounter, playerScore, computerScore);
+  output = `${message}. Player Score=${playerScore} Computer Score=${computerScore} Tie=${tieCounter}`;
+  console.log(output);
   playRound();
-  console.log(tieCounter, playerScore, computerScore);
+  output = `${message}. Player Score=${playerScore} Computer Score=${computerScore} Tie=${tieCounter}`;
+  console.log(output);
 }
 game();
